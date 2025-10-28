@@ -3,3 +3,20 @@ flask==2.3.3
 flask-sqlalchemy==3.1.1
 flask-cors==4.0.0
 python-dotenv==1.0.0
+
+# Authentication
+flask-jwt-extended==4.5.3
+bcrypt==4.0.1
+
+# Database
+psycopg2-binary==2.9.7
+SQLAlchemy==2.0.21
+
+# Validation & Utilities
+marshmallow==3.20.1
+email-validator==2.0.0.post2
+
+# Development
+pytest==7.4.2
+black==23.9.1
+flake8==6.1.0
