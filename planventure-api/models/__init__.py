@@ -1,27 +1,10 @@
-from flask import Flask, jsonify
-from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
-import os
+# models/__init__.py
+# DO NOT create a new SQLAlchemy() here.
+# Optionally re-export db if you like:
+# from extensions import db
 
-app = Flask(__name__)
+from .user import User       # noqa: F401
+from .trip import Trip       # noqa: F401
+from .base import BaseModel   # noqa: F401
 
-# ...existing code...
-
-db = SQLAlchemy(app)
-CORS(app)
-
-# Import models after db initialization
-from models.user import User
-
-@app.route('/')
-def home():
-    return jsonify({"message": "Welcome to PlanVenture API"})
-
-@app.route('/health')
-def health_check():
-    return jsonify({"status": "healthy"})
-
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
+__all__ = ['db', 'User', 'Trip']
